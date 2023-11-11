@@ -1,39 +1,25 @@
 package sem.dominio.dao;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.util.List;
 
 import sem.dominio.entity.Receita;
-import sem.dominio.jdbc.FintechDBManager;
 
-public class ReceitaDAO {
-	private Connection conexao;
+public interface ReceitaDAO {
 
-	public void cadastrar(Receita receita) {
-		PreparedStatement stmt = null;
-
-		try {
-			conexao = FintechDBManager.obterConexao();
-			String sql = "INSERT INTO T_FT_RECEITA( id_receita, id_conta, vl_entrada, dt_entrada) VALUES (SQ_RECEITA.NEXTVAL, ?, ?, ?)";
-			stmt = conexao.prepareStatement(sql);
-
-			stmt.setInt(1, receita.getIdConta());
-			stmt.setDouble(2, receita.getValorEntrada());
-			java.sql.Date data = Date.valueOf(receita.getDataEntrada());
-			stmt.setDate(3, data);
-
-			stmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				stmt.close();
-				conexao.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-	}
+	public void insert(Receita receita);
+	
+	public Receita getByObject(Receita receita);
+	
+	public Receita getById(int id);
+	
+	public void deleteByObject(Receita receita);
+	
+	public void deleteById(int id);
+	
+	public void updateByObject(Receita receita);
+	
+	public void updateById(int id, String senha, double credito);
+	
+	public List<Receita> getAll();
+	
 }

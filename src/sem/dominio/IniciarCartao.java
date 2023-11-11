@@ -1,6 +1,6 @@
 package sem.dominio;
 
-import sem.dominio.dao.CartaoDAO;
+import sem.dominio.dao.OracleCartaoDAO;
 import sem.dominio.entity.Cartao;
 
 public class IniciarCartao {
@@ -20,7 +20,7 @@ public class IniciarCartao {
         Cartao cartao1 = new Cartao(id, idconta, numero, cvv, nome, senha, vencimento, limite);
         System.out.println("Crie a primeira cartão " + cartao1);
 
-        CartaoDAO cartaoDao = new CartaoDAO();
+        OracleCartaoDAO cartaoDao = new OracleCartaoDAO();
 
         cartaoDao.insert(cartao1);
 

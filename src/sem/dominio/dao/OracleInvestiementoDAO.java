@@ -6,16 +6,16 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import sem.dominio.entity.Investimento;
-import sem.dominio.jdbc.FintechDBManager;
+import sem.dominio.jdbc.ConnectionManager;
 
-public class InvestiementoDAO {
+public class OracleInvestiementoDAO implements InvestimentoDAO {
 	private Connection conexao;
 	
-	public void cadastrar(Investimento investimento) {
+	public void insert(Investimento investimento) {
 		PreparedStatement stmt = null;
 		
 		try {
-			conexao = FintechDBManager.obterConexao();
+			conexao = ConnectionManager.getInstance().getConnection();
 			String sql = "INSERT INTO T_FT_INVESTIMENTO( id_investimento, id_conta, dt_investimento, vl_investimento, qt_acao, nm_acao, cod_acao, vl_acao ) VALUES (SQ_INVESTIMENTO.NEXTVAL, ?, ?, ?, ?, ?, ?, ?)";
 			stmt = conexao.prepareStatement(sql);
 			

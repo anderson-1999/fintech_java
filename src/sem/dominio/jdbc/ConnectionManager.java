@@ -4,14 +4,27 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class FintechDBManager {
+public class ConnectionManager {
 
-	public static Connection obterConexao() {
+	private static ConnectionManager instance;
+
+	private ConnectionManager() {
+	}
+
+	public static ConnectionManager getInstance() {
+		if (instance == null) {
+			instance = new ConnectionManager();
+		}
+		return instance;
+	}
+
+	public Connection getConnection() {
 		Connection conexao = null;
 
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
+			//aqui emplemente a conexão para teste
 			/**
 			 * conexao = DriverManager.getConnection(
 			 * "jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL", "OPS$XXXX", "XXXXX");
@@ -23,9 +36,10 @@ public class FintechDBManager {
 			System.err.println("Não foi possivel conectar ao banco de dados");
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
-	    	  System.err.println("O driver JDBC não foi encontrado!");
-	    	  e.printStackTrace();
-	      }
+			System.err.println("O driver JDBC não foi encontrado!");
+			e.printStackTrace();
+		}
 		return conexao;
 	}
+
 }

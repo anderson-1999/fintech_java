@@ -1,40 +1,25 @@
 package sem.dominio.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.util.List;
 
 import sem.dominio.entity.Pix;
-import sem.dominio.jdbc.FintechDBManager;
 
-public class PixDAO {
+public interface PixDAO {
+
+	public void insert(Pix pix);
 	
-	private Connection conexao;
+	public Pix getByObject(Pix pix);
 	
-	public void cadastrar(Pix pix) {
-		PreparedStatement stmt = null;
-		
-		try {
-			conexao = FintechDBManager.obterConexao();
-			String sql = "INSERT INTO T_FT_PIX (id_pix, id_conta, chave_pix, limite_transacao, qt_transacao) values (SQ_PIX.NEXTVAL, ?, ?, ?, ?)";
-			stmt = conexao.prepareStatement(sql);
-			
-			stmt.setInt(1, pix.getIdConta());
-			stmt.setString(2, pix.getChavePix());
-			stmt.setDouble(3, pix.getLimiteTransacao());
-			stmt.setInt(4, pix.getQuantidadeTransacao());
-			
-			
-			stmt.executeUpdate();
-		} catch(SQLException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				stmt.close();
-				conexao.close();
-			} catch(SQLException e) {
-				e.printStackTrace();
-			}
-		}
-	}
+	public Pix getById(int id);
+	
+	public void deleteByObject(Pix pix);
+	
+	public void deleteById(int id);
+	
+	public void updateByObject(Pix pix);
+	
+	public void updateById(int id, String senha, double credito);
+	
+	public List<Pix> getAll();
+	
 }

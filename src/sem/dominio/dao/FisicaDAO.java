@@ -1,6 +1,6 @@
 package sem.dominio.dao;
 
-public class FisicaDAO extends PessoaDAO {
+public class FisicaDAO extends OraclePessoaDAO {
 	
 	public FisicaDAO() {
 		super();

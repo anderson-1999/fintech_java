@@ -22,10 +22,7 @@ public class Cartao {
 		this.limiteCredito = limiteCredito;
 		//cartaoVirtual = tipoCartao == "virtual" ? true : false;
 	}
-	private void setVencimento(String data) {
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        vencimentoDoCartao = LocalDate.parse(data,formatter);
-	}
+	
 	public Cartao(int idCartao, int idConta, String numeroDoCartao, String cvv, String nomeDoCartao,
 			String senhaDoCartao, LocalDate vencimentoDoCartao, double limiteCredito) {
 		this.idCartao = idCartao;
@@ -36,6 +33,11 @@ public class Cartao {
 		this.vencimentoDoCartao = vencimentoDoCartao;
 		this.senhaDoCartao = senhaDoCartao;
 		this.limiteCredito = limiteCredito;
+	}
+	
+	private void setVencimento(String data) {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        vencimentoDoCartao = LocalDate.parse(data,formatter);
 	}
 	
 	public double getLimiteCredito() {
