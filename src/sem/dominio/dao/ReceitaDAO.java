@@ -18,7 +18,7 @@ public interface ReceitaDAO {
 	
 	public void updateByObject(Receita receita);
 	
-	public void updateById(int id, String senha, double credito);
+	public void updateById(int id, double valorReceita);
 	
 	public List<Receita> getAll();
 	

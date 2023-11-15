@@ -18,7 +18,7 @@ public interface TelefoneDAO {
 	
 	public void updateByObject(Telefone telefone);
 	
-	public void updateById(int id, String senha, double credito);
+	public void updateById(int id, String ddi, String ddd, String numero, String tipo);
 	
 	public List<Telefone> getAll();
 	

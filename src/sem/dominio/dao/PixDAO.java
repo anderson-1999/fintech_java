@@ -18,7 +18,7 @@ public interface PixDAO {
 	
 	public void updateByObject(Pix pix);
 	
-	public void updateById(int id, String senha, double credito);
+	public void updateById(int id, double limite, int quantidade);
 	
 	public List<Pix> getAll();
 	

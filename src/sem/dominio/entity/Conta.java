@@ -5,17 +5,19 @@ public class Conta {
 	private double saldo, lisConta, cestaDeProduto, limiteCredito, seguroCartao;
 	private String numeroDaAgencia, numeroDaConta, senhaConta;
 
-	public Conta(int idConta, int idPessoa, String numeroDaAgencia, String numeroDaConta, double saldo, double lisConta, double seguroCartao, double cestaDeProduto, double limiteCredito, String senhaConta) {
+	public Conta(int idConta, int idPessoa, String numeroDaAgencia,
+			String numeroDaConta, double saldo, double lisConta, double seguroCartao,
+			double cestaDeProduto, double limiteCredito, String senhaConta) {
 		this.idConta = idConta;
 		this.idPessoa = idPessoa;
-		this.saldo = saldo;
-		this.lisConta = lisConta;
-		this.cestaDeProduto = cestaDeProduto;
-		this.limiteCredito = limiteCredito;
 		this.numeroDaAgencia = numeroDaAgencia;
 		this.numeroDaConta = numeroDaConta;
-		this.senhaConta = senhaConta;
+		this.saldo = saldo;
+		this.lisConta = lisConta;
 		this.seguroCartao = seguroCartao;
+		this.cestaDeProduto = cestaDeProduto;
+		this.limiteCredito = limiteCredito;
+		this.senhaConta = senhaConta;
 	}
 
 	public double getSeguroCartao() {

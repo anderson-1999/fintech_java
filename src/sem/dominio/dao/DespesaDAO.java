@@ -18,7 +18,7 @@ public interface DespesaDAO {
 	
 	public void updateByObject(Despesa despesa);
 	
-	public void updateById(int id);
+	public void updateById(int id, double valor);
 	
 	public List<Despesa> getAll();
 	

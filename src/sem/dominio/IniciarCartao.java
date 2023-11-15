@@ -1,7 +1,8 @@
 package sem.dominio;
 
-import sem.dominio.dao.OracleCartaoDAO;
+import sem.dominio.dao.CartaoDAO;
 import sem.dominio.entity.Cartao;
+import sem.dominio.factory.DAOFactory;
 
 public class IniciarCartao {
     
@@ -18,9 +19,9 @@ public class IniciarCartao {
         double limite = 0;
 
         Cartao cartao1 = new Cartao(id, idconta, numero, cvv, nome, senha, vencimento, limite);
-        System.out.println("Crie a primeira cartão " + cartao1);
+        System.out.println("Crie o primeiro cartão " + cartao1);
 
-        OracleCartaoDAO cartaoDao = new OracleCartaoDAO();
+        CartaoDAO cartaoDao = DAOFactory.getDAOFactory(DAOFactory.ORACLE).getCartaoDAO();
 
         cartaoDao.insert(cartao1);
 
@@ -35,7 +36,7 @@ public class IniciarCartao {
         limite = 2000.00;
 
         Cartao cartao2 = new Cartao(id, idconta, numero, cvv, nome, senha, vencimento, limite);
-        System.out.println("Crie a seguanda Cartão " + cartao2);
+        System.out.println("Crie a segundo Cartão " + cartao2);
 
         cartaoDao.insert(cartao2);
 
@@ -50,7 +51,7 @@ public class IniciarCartao {
         limite = 500.00;
 
         Cartao cartao3 = new Cartao(id, idconta, numero, cvv, nome, senha, vencimento, limite);
-        System.out.println("Crie a terceira pessoa " + cartao3);
+        System.out.println("Crie o terceiro cartao " + cartao3);
 
         cartaoDao.insert(cartao3);
 
@@ -65,7 +66,7 @@ public class IniciarCartao {
         limite = 4100.00;
 
         Cartao cartao4 = new Cartao(id, idconta, numero, cvv, nome, senha, vencimento, limite);
-        System.out.println("Crie a quarta pessoa " + cartao4);
+        System.out.println("Crie o quarto cartao " + cartao4);
 
         cartaoDao.insert(cartao4);
 
@@ -80,22 +81,22 @@ public class IniciarCartao {
         limite = 3700.00;
 
         Cartao cartao5 = new Cartao(id, idconta, numero, cvv, nome, senha, vencimento, limite);
-        System.out.println("Crie a quinta pessoa " + cartao5);
+        System.out.println("Crie o quinto cartao " + cartao5);
 
         cartaoDao.insert(cartao5);
 
 
-        //print pessoa;
-        System.out.println("imprimindo todas as pessoas");
+        //print todos os cartoes;
+        System.out.println("imprimindo todas os cartoes");
         cartaoDao.getAll().forEach(System.out::println);
 
-        //print pessoa encontada
+        //print cartao encontada
         System.out.println(cartaoDao.getById(1));
 
-        //deleta pessoa
+        //deleta cartao
         cartaoDao.deleteById(4);
 
-        //atualizaçao pessoa
+        //atualizaçao cartao
         senha = "4599";
         limite = 1000.00;
 
@@ -104,13 +105,13 @@ public class IniciarCartao {
         //verifica opcao deletada e atualizada
         cartaoDao.getAll().forEach(System.out::println);
 
-        //deleta pessoa pessoa nao existe
+        //deleta  cartao nao existe
         cartaoDao.deleteById(6);
 
-        //atualiza pessoa que nao existe
+        //atualiza cartao que nao existe
         cartaoDao.updateById(6, senha, limite);
 
-        //seleciona pessoa que nao existe
+        //seleciona cartao que nao existe
         cartaoDao.getById(6);
     }
 }

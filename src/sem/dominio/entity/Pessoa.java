@@ -58,7 +58,7 @@ public class Pessoa {
 	
 	private void setDataNascimento(String data) {
 		 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-         dataNascimento = LocalDate.parse(data,formatter);
+         this.dataNascimento = LocalDate.parse(data,formatter);
 	}
 	public String toString() {
 		return idPessoa + " " + nome +  " " + sobrenome + " " + email + " " + dataNascimento + " " + numeroCpfCnpj ;

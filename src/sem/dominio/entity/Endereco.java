@@ -4,7 +4,8 @@ public class Endereco {
 	private int idEndereco, idPessoa;
 	private String numeroDoCep, tipoLogradouro, nomeLogradouro, numeroDaResidencia, tipoDaResidencia, nomeBarrio, complemento;
 
-	public Endereco(int idEndereco, int idPessoa, String numeroDoCep, String nomeBarrio, String tipoLogradouro, String nomeLogradouro, String complemento, String numeroDaResidencia,  String tipoDaResidencia) {
+	public Endereco(int idEndereco, int idPessoa, String numeroDoCep, String nomeBarrio, String tipoLogradouro,
+			String nomeLogradouro, String complemento, String numeroDaResidencia,  String tipoDaResidencia) {
 		this.idEndereco = idEndereco;
 		this.idPessoa = idPessoa;
 		this.tipoLogradouro = tipoLogradouro;

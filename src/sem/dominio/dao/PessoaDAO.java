@@ -18,7 +18,7 @@ public interface PessoaDAO {
 	
 	public void updateByObject(Pessoa pessoa);
 	
-	public void updateById(int id);
+	public void updateById(int id, String email);
 	
 	public List<Pessoa> getAll();
 	

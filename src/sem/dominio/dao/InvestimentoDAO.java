@@ -18,7 +18,7 @@ public interface InvestimentoDAO {
 	
 	public void updateByObject(Investimento investimento);
 	
-	public void updateById(int id);
+	public void updateById(int id, double valorTotal, double valorAcao);
 	
 	public List<Investimento> getAll();
 	

@@ -18,7 +18,7 @@ public interface ContaDAO {
 	
 	public void updateByObject(Conta conta);
 	
-	public void updateById(int id);
+	public void updateById(int id, String senha, double saldo, double lis, double seguro, double cesta, double limite);
 	
 	public List<Conta> getAll();
 	

@@ -17,6 +17,7 @@ public class OracleCartaoDAO implements CartaoDAO {
 	
 	private Connection conexao;
 	
+	@Override
 	public void insert(Cartao cartao) {
 		PreparedStatement stmt = null;
 
@@ -52,6 +53,7 @@ public class OracleCartaoDAO implements CartaoDAO {
 		}
 	}
 
+	@Override
 	public Cartao getByObject(Cartao cartao) {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -81,7 +83,7 @@ public class OracleCartaoDAO implements CartaoDAO {
 			}
 			
 			if (cartaoEncontrada == null) {
-				System.out.println("Não foi encontrada nenhum Cartão com esse id " + cartao.getIdConta());
+				System.out.println("Não foi encontrada Cartão com o id " + cartao.getIdConta());
 			}
 
 		} catch (SQLException e) {
@@ -96,7 +98,8 @@ public class OracleCartaoDAO implements CartaoDAO {
 		}
 		return cartaoEncontrada;
 	}
-
+	
+	@Override
 	public Cartao getById(int id) {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -142,6 +145,7 @@ public class OracleCartaoDAO implements CartaoDAO {
 		return cartao;
 	}
 
+	@Override
 	public void deleteByObject(Cartao cartao) {
 		PreparedStatement stmt = null;
 
@@ -169,6 +173,7 @@ public class OracleCartaoDAO implements CartaoDAO {
 		}
 	}
 
+	@Override
 	public void deleteById(int id) {
 		PreparedStatement stmt = null;
 
@@ -196,6 +201,7 @@ public class OracleCartaoDAO implements CartaoDAO {
 		}
 	}
 	
+	@Override
 	public void updateByObject(Cartao cartao) {
 		PreparedStatement stmt = null;
 
@@ -215,7 +221,7 @@ public class OracleCartaoDAO implements CartaoDAO {
 			} else if(atualizado == 1) {
 				System.out.println("Houve 1 alteração");
 			} else {
-				System.out.println("Houveram " + atualizado + " alteração");
+				System.out.println("Houveram " + atualizado + " alterações");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -229,6 +235,7 @@ public class OracleCartaoDAO implements CartaoDAO {
 		}
 	}
 
+	@Override
 	public void updateById(int id, String senha, double credito) {
 		PreparedStatement stmt = null;
 
@@ -250,7 +257,7 @@ public class OracleCartaoDAO implements CartaoDAO {
 			} else if(atualizado == 1) {
 				System.out.println("Houve 1 alteração");
 			} else {
-				System.out.println("Houveram " + atualizado + " alteração");
+				System.out.println("Houveram " + atualizado + " alterações");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -264,6 +271,7 @@ public class OracleCartaoDAO implements CartaoDAO {
 		}
 	}
 
+	@Override
 	public List<Cartao> getAll() {
 
 		List<Cartao> lista = new ArrayList<Cartao>();

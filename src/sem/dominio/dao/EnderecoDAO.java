@@ -18,7 +18,8 @@ public interface EnderecoDAO {
 	
 	public void updateByObject(Endereco endereco);
 	
-	public void updateById(int id);
+	public void updateById(int id, String numeroDoCep, String nomeBarrio, String tipoLogradouro, String nomeLogradouro,
+			String numeroDaResidde, String complemento, String tipoDaResidencia);
 	
 	public List<Endereco> getAll();
 	

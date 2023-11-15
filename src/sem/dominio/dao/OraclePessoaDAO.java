@@ -63,6 +63,7 @@ public class OraclePessoaDAO implements PessoaDAO {
 
 	}
 
+	@Override
 	public void insert(Pessoa pessoa) {
 		PreparedStatement stmt = null;
 
@@ -95,6 +96,7 @@ public class OraclePessoaDAO implements PessoaDAO {
 		}
 	}
 
+	@Override
 	public Pessoa getByObject(Pessoa pessoa) {
 		PreparedStatement stmt = null;
 		ResultSet rs;
@@ -139,6 +141,7 @@ public class OraclePessoaDAO implements PessoaDAO {
 		return pessoaEncontrada;
 	}
 
+	@Override
 	public Pessoa getById(int id) {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -182,7 +185,8 @@ public class OraclePessoaDAO implements PessoaDAO {
 		return pessoa;
 	}
 
-	public void deleteByPerson(Pessoa pessoa) {
+	@Override
+	public void deleteByObject(Pessoa pessoa) {
 		PreparedStatement stmt = null;
 
 		try {
@@ -209,6 +213,7 @@ public class OraclePessoaDAO implements PessoaDAO {
 		}
 	}
 
+	@Override
 	public void deleteById(int id) {
 		PreparedStatement stmt = null;
 
@@ -236,7 +241,8 @@ public class OraclePessoaDAO implements PessoaDAO {
 		}
 	}
 
-	public void updateById(int id, String novoValor) {
+	@Override
+	public void updateById(int id, String email) {
 		PreparedStatement stmt = null;
 
 		try {
@@ -244,7 +250,7 @@ public class OraclePessoaDAO implements PessoaDAO {
 			String sql = "UPDATE T_FT_PESSOA SET email = ? WHERE id_pessoa = ?";
 			stmt = conexao.prepareStatement(sql);
 
-			stmt.setString(1, novoValor);
+			stmt.setString(1, email);
 			stmt.setInt(2, id);
 
 			int atualizado = stmt.executeUpdate();
@@ -268,7 +274,8 @@ public class OraclePessoaDAO implements PessoaDAO {
 		}
 	}
 
-	public void updateByPerson(Pessoa pessoa) {
+	@Override
+	public void updateByObject(Pessoa pessoa) {
 		PreparedStatement stmt = null;
 
 		try {
@@ -300,6 +307,7 @@ public class OraclePessoaDAO implements PessoaDAO {
 		}
 	}
 
+	@Override
 	public List<Pessoa> getAll() {
 
 		List<Pessoa> lista = new ArrayList<Pessoa>();

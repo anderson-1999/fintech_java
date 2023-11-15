@@ -15,10 +15,15 @@ public class Despesa {
 		this.valorSaida = valorSaida;
 		this.dataSaida = dataSaida;
 	}
-	public String getDataSaida() {
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        String data = dataSaida.format(formatter);
-		return data;
+	public Despesa(int idPessoa, int idConta, double valorSaida, String dataSaida) {
+		
+		this.idDespesa = idPessoa;
+		this.idConta = idConta;
+		this.valorSaida = valorSaida;
+		this.setDataSaida(dataSaida);
+	}
+	public LocalDate getDataSaida() {
+		return this.dataSaida;
 	}
 	public void setDataSaida(String dataSaida) {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");

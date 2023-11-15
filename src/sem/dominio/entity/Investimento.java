@@ -8,6 +8,7 @@ public class Investimento {
 	private LocalDate dataInvestimento;
 	private String nomeAcao, codigoAcao;
 	private double valorInvestimento, valorAcao;
+	
 	public Investimento(int idInvestimento, int idConta, String dataInvestimento,
 			double valorInvestimento, int quantidadeAcao, String nomeAcao, String codigoAcao, double valorAcao) {
 		this.idInvestimento = idInvestimento;
@@ -19,10 +20,19 @@ public class Investimento {
 		this.valorInvestimento = valorInvestimento;
 		this.valorAcao = valorAcao;
 	}
-	public String getDataInvestimento() {
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        String data = dataInvestimento.format(formatter);
-		return data;
+	public Investimento(int idInvestimento, int idConta, LocalDate dataInvestimento,
+			double valorInvestimento, int quantidadeAcao, String nomeAcao, String codigoAcao, double valorAcao) {
+		this.idInvestimento = idInvestimento;
+		this.idConta = idConta;
+		this.quantidadeAcao = quantidadeAcao;
+		this.dataInvestimento = dataInvestimento;
+		this.nomeAcao = nomeAcao;
+		this.codigoAcao = codigoAcao;
+		this.valorInvestimento = valorInvestimento;
+		this.valorAcao = valorAcao;
+	}
+	public LocalDate getDataInvestimento() {
+		return this.dataInvestimento;
 	}
 	private void setDataInvestimento(String dataInvestimento) {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
